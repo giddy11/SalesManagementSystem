@@ -8,6 +8,12 @@ namespace CoreBusiness.Models
 {
     public class Category
     {
+        public Category()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public Guid Id { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
