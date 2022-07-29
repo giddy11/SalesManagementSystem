@@ -14,6 +14,7 @@ namespace CoreBusiness.DataStorePluginInterfaces
         void DeleteCategory(int categoryId);
         IEnumerable<Category> GetCategories();
         Category GetCategoryById(int categoryId);
+        List<Category> GetCategoryByname(int categoryId, string categoryName);
         void UpdateCategory(Category category);
     }
 }

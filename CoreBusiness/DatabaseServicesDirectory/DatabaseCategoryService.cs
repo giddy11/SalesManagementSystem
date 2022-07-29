@@ -28,6 +28,12 @@ namespace CoreBusiness.DatabaseServicesDirectory
             return categories?.FirstOrDefault(x => x.CategoryId == categoryId);
         }
 
+        public List<Category> GetCategoryByname(int categoryId, string categoryName)
+        {
+            var _categories = categories.Where(x => x.CategoryId == categoryId && x.Name == categoryName);
+            return categories.ToList();
+        }
+
         public void AddCategory(Category category)
         {
             if (categories.Any(x => x.Name.Equals(category.Name, StringComparison.OrdinalIgnoreCase))) return;

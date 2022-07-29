@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApp.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
 
@@ -18,23 +18,26 @@ namespace WebApp.Controllers
         }
 
 
+        [HttpGet("category")]
+        public IActionResult GetAllCategory()
+        {
+            return Ok(DatabaseService.GetCategories());
+        }
 
+        [HttpGet("categoryName")]
+        public IActionResult GetAllCategoryByName(int categoryId, string categoryName)
+        {
+            return Ok(DatabaseService.GetCategoryByname(categoryId, categoryName));
+        }
 
-        //// GET: api/<CategoryController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+    
+        [HttpGet("byId/{id}")]
+        public IActionResult GetAllCategoryById(int id)
+        {
+            return Ok(DatabaseService.GetCategoryById(id));
+        }
 
-        //// GET api/<CategoryController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        // POST api/<CategoryController>
+        
         [HttpPost("byCategory")]
         public IActionResult AddCategory([FromBody] Category category)
         {
