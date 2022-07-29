@@ -18,6 +18,8 @@ namespace WebApp.Controllers
         }
 
 
+        #region HTTP-GET
+
         [HttpGet("category")]
         public IActionResult GetAllCategory()
         {
@@ -36,8 +38,10 @@ namespace WebApp.Controllers
         {
             return Ok(DatabaseService.GetCategoryById(id));
         }
+        #endregion
 
-        
+
+        #region HTTP-POST
         [HttpPost("byCategory")]
         public IActionResult AddCategory([FromBody] Category category)
         {
@@ -51,18 +55,29 @@ namespace WebApp.Controllers
             DatabaseService.AddCategory(categoryId, name, description);
             return Ok("Added Successfully");
         }
+        #endregion
 
 
-        //// PUT api/<CategoryController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        #region HTTP-PUT
 
+        
+        [HttpPut("{id}")]
+        public IActionResult UpdateCategory([FromBody] Category category)
+        {
+            DatabaseService.UpdateCategory(category);
+            return Ok("Updated Successfully");
+        }
+        #endregion
+
+
+
+        #region HTTP-DELETE
         //// DELETE api/<CategoryController>/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)
         //{
         //}
+
+        #endregion
     }
 }
