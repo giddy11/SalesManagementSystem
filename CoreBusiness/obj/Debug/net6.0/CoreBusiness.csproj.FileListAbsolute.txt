@@ -1,0 +1,12 @@
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\bin\Debug\net6.0\CoreBusiness.deps.json
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\bin\Debug\net6.0\CoreBusiness.dll
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\bin\Debug\net6.0\CoreBusiness.pdb
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.AssemblyInfoInputs.cache
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.AssemblyInfo.cs
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.dll
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\refint\CoreBusiness.dll
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\CoreBusiness.pdb
+C:\Users\ADMIN\Desktop\Phase II\Assignment3\SalesManagementSystem\CoreBusiness\obj\Debug\net6.0\ref\CoreBusiness.dll
