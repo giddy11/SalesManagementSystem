@@ -34,6 +34,36 @@ namespace CoreBusiness.DatabaseServicesDirectory
             users.Add(user);
         }
 
+        public bool IsUserExist(Guid userId)
+        {
+            User user = GetUserById(userId);
+            if (user is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool IsUserIdExist(Guid userId)
+        {
+            User user = users.FirstOrDefault(u => u.UserId == userId);
+            if (user is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool IsUsernameExist(string username)
+        {
+            User user = users.FirstOrDefault(u => u.Username == username);
+            if (user is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void EncryptPassword(User user, string password)
         {
             var passwordEncoded = Encoding.UTF8.GetBytes(user.Password).ToString();
