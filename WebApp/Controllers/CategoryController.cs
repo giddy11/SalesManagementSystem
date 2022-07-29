@@ -61,7 +61,7 @@ namespace WebApp.Controllers
         #region HTTP-PUT
 
         
-        [HttpPut("{id}")]
+        [HttpPut]
         public IActionResult UpdateCategory([FromBody] Category category)
         {
             DatabaseService.UpdateCategory(category);
@@ -72,11 +72,13 @@ namespace WebApp.Controllers
 
 
         #region HTTP-DELETE
-        //// DELETE api/<CategoryController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        
+        [HttpDelete]
+        public IActionResult DeleteCategory(int id)
+        {
+            DatabaseService.DeleteCategory(id);
+            return Ok("Deleted successfully");
+        }
 
         #endregion
     }
