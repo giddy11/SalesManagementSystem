@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoreBusiness.DatabaseServicesDirectory
+namespace CoreBusiness.DataStorePluginInterfaces
 {
-    public class DatabaseProductSevice
+    public interface IDatabaseProductService : IProductRepository
     {
     }
 }
