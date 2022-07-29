@@ -7,16 +7,44 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
 
-        public IDatabaseService DatabaseService { get; }
-        public CategoryController(IDatabaseService databaseService)
+        public IDatabaseCategoryService DatabaseService { get; }
+        public CategoryController(IDatabaseCategoryService databaseService)
         {
             DatabaseService = databaseService;
         }
 
+
+        #region HTTP-POST
+        [HttpPost("byCategory")]
+        public IActionResult AddCategory([FromBody] Category category)
+        {
+            DatabaseService.AddCategory(category);
+            return Ok("Category added succeffully");
+        }
+
+        [HttpPost]
+        public IActionResult AddCategory(int categoryId, string name, string description)
+        {
+            DatabaseService.AddCategory(categoryId, name, description);
+            return Ok("Added Successfully");
+        }
+        #endregion
+
+
+        #region HTTP-PUT
+
+
+        [HttpPut]
+        public IActionResult UpdateCategory([FromBody] Category category)
+        {
+            DatabaseService.UpdateCategory(category);
+            return Ok("Updated Successfully");
+        }
+        #endregion
 
         #region HTTP-GET
 
@@ -39,37 +67,6 @@ namespace WebApp.Controllers
             return Ok(DatabaseService.GetCategoryById(id));
         }
         #endregion
-
-
-        #region HTTP-POST
-        [HttpPost("byCategory")]
-        public IActionResult AddCategory([FromBody] Category category)
-        {
-            DatabaseService.AddCategory(category);
-            return Ok("Category added succeffully");
-        }
-
-        [HttpPost]
-        public IActionResult AddCategory(int categoryId, string name, string description)
-        {
-            DatabaseService.AddCategory(categoryId, name, description);
-            return Ok("Added Successfully");
-        }
-        #endregion
-
-
-        #region HTTP-PUT
-
-        
-        [HttpPut]
-        public IActionResult UpdateCategory([FromBody] Category category)
-        {
-            DatabaseService.UpdateCategory(category);
-            return Ok("Updated Successfully");
-        }
-        #endregion
-
-
 
         #region HTTP-DELETE
         

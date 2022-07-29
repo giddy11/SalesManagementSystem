@@ -7,11 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IDatabaseCategoryService, DatabaseCategoryService>();
+builder.Services.AddSingleton<IDatabaseProductService, DatabaseProductService>();
+builder.Services.AddSingleton<IDatabaseUserService, DatabaseUserService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IDatabaseCategoryService, DatabaseCategoryService>();
-builder.Services.AddTransient<IDatabaseProductService, DatabaseProductService>();
 
 var app = builder.Build();
 

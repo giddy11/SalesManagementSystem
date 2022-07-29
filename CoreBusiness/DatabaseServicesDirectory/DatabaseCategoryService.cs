@@ -4,18 +4,19 @@ using System.Collections.Generic;
 
 namespace CoreBusiness.DatabaseServicesDirectory
 {
-    public class DatabaseCategoryService : IDatabaseService
+    public class DatabaseCategoryService : IDatabaseCategoryService
     {
         public DatabaseCategoryService()
         {
             //Add some default categories
+            //var categories = new List<Category>();
 
-            categories = new List<Category>()
-            {
-                new Category { CategoryId = 1, Name = "Beverage", Description = "Beverage"},
-                new Category { CategoryId = 2, Name = "Bakery", Description = "Bakery"},
-                new Category { CategoryId = 3, Name = "Meat", Description = "Meat"}
-            };
+            //categories = new List<Category>()
+            //{
+            //    new Category { CategoryId = 1, Name = "Beverage", Description = "Beverage"},
+            //    new Category { CategoryId = 2, Name = "Bakery", Description = "Bakery"},
+            //    new Category { CategoryId = 3, Name = "Meat", Description = "Meat"}
+            //};
         }
              private readonly List<Category> categories;
 
@@ -39,15 +40,15 @@ namespace CoreBusiness.DatabaseServicesDirectory
         {
             if (categories.Any(x => x.Name.Equals(category.Name, StringComparison.OrdinalIgnoreCase))) return;
 
-            //if (categories != null && categories.Count > 0)
-            //{
-            //    //var maxId = categories.Max(x => x.CategoryId);
-            //    //category.CategoryId = maxId;
-            //}
-            //else
-            //{
-            //    category.CategoryId = 1;
-            //}
+            if (categories != null && categories.Count > 0)
+            {
+                var maxId = categories.Max(x => x.CategoryId);
+                category.CategoryId = maxId;
+            }
+            else
+            {
+                category.CategoryId = 1;
+            }
 
 
             categories.Add(category);
