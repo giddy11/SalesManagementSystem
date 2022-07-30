@@ -22,9 +22,15 @@ namespace WebApp.Controllers
         [HttpPost("byCategory")]
         public IActionResult AddCategory([FromBody] Category category)
         {
-            DatabaseService.AddCategory(category);
-            return Ok("Category added succeffully");
+            bool NameExist = DatabaseService.IsCategoryNameExist(category.Name);
+            if (!NameExist)
+            {
+                DatabaseService.AddCategory(category);
+                return Ok("Category Added successfully");
+            }
+            return Ok("Category already exist");
         }
+        
 
         [HttpPost]
         public IActionResult AddCategory(int categoryId, string name, string description)

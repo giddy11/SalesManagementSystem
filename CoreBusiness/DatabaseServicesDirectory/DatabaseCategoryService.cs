@@ -44,14 +44,16 @@ namespace CoreBusiness.DatabaseServicesDirectory
             {
                 var maxId = categories.Max(x => x.CategoryId);
                 category.CategoryId = maxId + 1;
+                categories.Add(category);
             }
             else
             {
                 category.CategoryId = 1;
+                categories.Add(category);
             }
 
 
-            categories.Add(category);
+            
         }
 
         public void AddCategory(int categoryId, string name, string description)
@@ -79,6 +81,16 @@ namespace CoreBusiness.DatabaseServicesDirectory
         public void DeleteCategory(int categoryId)
         {
             categories?.Remove(GetCategoryById(categoryId));
+        }
+
+        public bool IsCategoryNameExist(string name)
+        {
+            var categoryName = categories.FirstOrDefault(x => x.Name == name);      //.FirstOrDefault(u => u.Username == username);
+            if (name is null)
+            {
+                return false;
+            }
+            return true;
         }
 
     }

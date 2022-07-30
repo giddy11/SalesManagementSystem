@@ -17,6 +17,7 @@ namespace CoreBusiness.DataStorePluginInterfaces
         IEnumerable<Category> GetCategories();
         Category GetCategoryById(int categoryId);
         List<Category> GetCategoryByname(int categoryId, string categoryName);
+        bool IsCategoryNameExist(string name);
         void UpdateCategory(Category category);
     }
 }

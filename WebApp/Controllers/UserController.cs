@@ -8,7 +8,7 @@ namespace WebApp.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        public IDatabaseUserService DatabaseService { get; set; }
+        public IDatabaseUserService DatabaseService { get; }
         public UserController(IDatabaseUserService databaseService)
         {
             DatabaseService = databaseService;
@@ -16,25 +16,19 @@ namespace WebApp.Controllers
 
 
         #region HTTP-POST
-        /// <summary>
-        /// I have a bug here : when i use the same username for another user, it allows the registration to be successful
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="username"></param>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        [HttpPost]
         
-        public IActionResult CreateUser(string name, string username, string email, string password)
+        [HttpPost]
+
+        //public IActionResult CreateUser(string name, string username, string email, string password)
+        public IActionResult CreateUser([FromBody]User user)
         {
-            bool usernameExist = DatabaseService.IsUsernameExist(username);
+            bool usernameExist = DatabaseService.IsUsernameExist(user.Username);
             //bool userIdExist = DatabaseService.IsUserIdExist(user.UserId);
-            bool userEmailExist = DatabaseService.IsUserEmailExist(email);
+            bool userEmailExist = DatabaseService.IsUserEmailExist(user.Email);
 
             if (!usernameExist && !userEmailExist)
             {
-                DatabaseService.CreateUser(name, username, email, password);
+                DatabaseService.CreateUser(user);
                 return Ok("User Created Successfully");
             }
             else if (userEmailExist) return Ok("Email has beign used");

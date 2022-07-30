@@ -10,7 +10,7 @@ namespace CoreBusiness.DataStorePluginInterfaces
     public interface IUserRepository
     {
         void CreateUser(User user);
-        void CreateUser(string name, string email, string username, string password);
+        //void CreateUser(string name, string email, string username, string password);
         void DeleteUser(Guid userId);
         User GetUserById(Guid userId);
         IEnumerable<User> GetUsers();

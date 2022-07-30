@@ -14,7 +14,7 @@ namespace CoreBusiness.DatabaseServicesDirectory
         {
         }
 
-        private readonly List<User> users = new();
+        private readonly List<User> users = new List<User>();
 
 
         public IEnumerable<User> GetUsers()
@@ -30,27 +30,20 @@ namespace CoreBusiness.DatabaseServicesDirectory
 
         public void CreateUser(User user)
         {
-            EncryptPassword(user, user.Password);
             users.Add(user);
         }
 
-        public void CreateUser(string name, string email, string username, string password)
-        {
-            users.Add(new User
-            {
-                Name = name,
-                Email = email,
-                Username = username,
-                Password = password
-            });
-        }
-        /*categories.Add(new Category
-            {
-                CategoryId = categoryId,
-                Name = name,
-                Description = description
-            });*/
-
+        //public void CreateUser(string name, string email, string username, string password)
+        //{
+        //    users.Add(new User
+        //    {
+        //        Name = name,
+        //        Email = email,
+        //        Username = username,
+        //        Password = password
+        //    });
+        //}
+        
         public bool IsUserExist(Guid userId)
         {
             User user = GetUserById(userId);
@@ -91,12 +84,6 @@ namespace CoreBusiness.DatabaseServicesDirectory
             return true;
         }
 
-        private void EncryptPassword(User user, string password)
-        {
-            var passwordEncoded = Encoding.UTF8.GetBytes(user.Password).ToString();
-            user.Password = passwordEncoded;
-        }
-
 
         public void UpdateUser(User user)
         {
@@ -115,31 +102,5 @@ namespace CoreBusiness.DatabaseServicesDirectory
                 users.Remove(user);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
