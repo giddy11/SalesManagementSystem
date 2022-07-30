@@ -18,17 +18,23 @@ namespace WebApp.Controllers
         #region HTTP-POST
 
         [HttpPost]
+
         public IActionResult CreateUser([FromBody] User user)
         {
-            bool usernameExist = DatabaseService.IsUsernameExist(user.Username) || DatabaseService.IsUserIdExist(user.UserId);
-            if (!usernameExist)
+            bool usernameExist = DatabaseService.IsUsernameExist(user.Username);
+            bool userIdExist = DatabaseService.IsUserIdExist(user.UserId);
+            bool userEmailExist = DatabaseService.IsUserEmailExist(user.Email);
+
+            if (!usernameExist && !userEmailExist && !userIdExist)
             {
                 DatabaseService.CreateUser(user);
                 return Ok("User Created Successfully");
             }
-            return BadRequest("This user already exist");
-            
+            else if (userEmailExist) return Ok("Email has beign used");
+            else if (userIdExist) return Ok("UserId has beign used");
+            else return Ok("Username already used");
         }
+
 
         #endregion
 

@@ -13,6 +13,8 @@ namespace CoreBusiness.DataStorePluginInterfaces
         void DeleteUser(Guid userId);
         User GetUserById(Guid userId);
         IEnumerable<User> GetUsers();
+        bool IsUserEmailExist(string email);
+
         bool IsUserExist(Guid userId);
         bool IsUserIdExist(Guid userId);
         bool IsUsernameExist(string username);

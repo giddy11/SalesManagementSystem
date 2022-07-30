@@ -54,6 +54,16 @@ namespace CoreBusiness.DatabaseServicesDirectory
             return true;
         }
 
+        public bool IsUserEmailExist(string email)
+        {
+            var user = users.FirstOrDefault(x => x.Email == email);
+            if (user is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool IsUsernameExist(string username)
         {
             var user = users.FirstOrDefault(x => x.Username == username);
