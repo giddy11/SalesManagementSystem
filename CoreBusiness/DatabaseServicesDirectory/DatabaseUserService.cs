@@ -34,6 +34,23 @@ namespace CoreBusiness.DatabaseServicesDirectory
             users.Add(user);
         }
 
+        public void CreateUser(string name, string email, string username, string password)
+        {
+            users.Add(new User
+            {
+                Name = name,
+                Email = email,
+                Username = username,
+                Password = password
+            });
+        }
+        /*categories.Add(new Category
+            {
+                CategoryId = categoryId,
+                Name = name,
+                Description = description
+            });*/
+
         public bool IsUserExist(Guid userId)
         {
             User user = GetUserById(userId);
