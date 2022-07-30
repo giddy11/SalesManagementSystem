@@ -46,7 +46,7 @@ namespace CoreBusiness.DatabaseServicesDirectory
 
         public bool IsUserIdExist(Guid userId)
         {
-            User user = users.FirstOrDefault(u => u.UserId == userId);
+            var user = users.FirstOrDefault(x => x.UserId == userId);
             if (user is null)
             {
                 return false;
@@ -56,7 +56,7 @@ namespace CoreBusiness.DatabaseServicesDirectory
 
         public bool IsUsernameExist(string username)
         {
-            User user = users.FirstOrDefault(u => u.Username == username);
+            var user = users.FirstOrDefault(x => x.Username == username);
             if (user is null)
             {
                 return false;
