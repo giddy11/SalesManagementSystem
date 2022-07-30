@@ -10,7 +10,7 @@ namespace CoreBusiness.DataStorePluginInterfaces
     public interface ICategoryRepository
     {
         void AddCategory(Category category);
-        void AddCategory(int categoryId, string name, string description);
+        void AddCategory(string name, string description);
         //void DeleteAllCategories(List<Category> categories);
         void DeleteCategory(int categoryId);
         IEnumerable<Category> GetCategories();

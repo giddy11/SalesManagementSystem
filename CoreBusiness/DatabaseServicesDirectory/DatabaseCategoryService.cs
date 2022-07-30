@@ -54,11 +54,11 @@ namespace CoreBusiness.DatabaseServicesDirectory
             categories.Add(category);
         }
 
-        public void AddCategory(int categoryId, string name, string description)
+        public void AddCategory(string name, string description)
         {
             categories.Add(new Category
             {
-                CategoryId = categoryId,
+                
                 Name = name,
                 Description = description
             });
