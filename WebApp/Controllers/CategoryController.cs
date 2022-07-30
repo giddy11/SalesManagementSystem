@@ -27,9 +27,9 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCategory(string name, string description)
+        public IActionResult AddCategory(int categoryId, string name, string description)
         {
-            DatabaseService.AddCategory(name, description);
+            DatabaseService.AddCategory(categoryId, name, description);
             return Ok("Category Added Successfully");
         }
         #endregion

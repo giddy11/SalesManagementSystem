@@ -43,7 +43,7 @@ namespace CoreBusiness.DatabaseServicesDirectory
             if (categories != null && categories.Count > 0)
             {
                 var maxId = categories.Max(x => x.CategoryId);
-                category.CategoryId = maxId;
+                category.CategoryId = maxId + 1;
             }
             else
             {
@@ -54,11 +54,11 @@ namespace CoreBusiness.DatabaseServicesDirectory
             categories.Add(category);
         }
 
-        public void AddCategory(string name, string description)
+        public void AddCategory(int categoryId, string name, string description)
         {
             categories.Add(new Category
             {
-                
+                CategoryId = categoryId,
                 Name = name,
                 Description = description
             });
