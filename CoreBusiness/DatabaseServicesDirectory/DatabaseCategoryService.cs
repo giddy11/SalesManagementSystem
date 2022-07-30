@@ -18,7 +18,7 @@ namespace CoreBusiness.DatabaseServicesDirectory
             //    new Category { CategoryId = 3, Name = "Meat", Description = "Meat"}
             //};
         }
-             private readonly List<Category> categories;
+        private readonly List<Category> categories = new List<Category>();
 
         public IEnumerable<Category> GetCategories()
         {
